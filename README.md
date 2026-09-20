@@ -158,4 +158,8 @@ See [docs/SCOPE.md](docs/SCOPE.md) and [docs/METHODS.md](docs/METHODS.md).
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+This review proposal changes the default license for project-owned source and
+public documentation to [MPL-2.0](LICENSE), subject to licensing counsel review
+before publication. Existing MIT versions remain available under their original
+terms; their notice is preserved in [LICENSES/MIT-legacy.txt](LICENSES/MIT-legacy.txt).
+See [LICENSE-POLICY.md](LICENSE-POLICY.md) for the exact baseline, scope and exclusions.

@@ -3,8 +3,8 @@ name = "jacobian-sensitivity-propagation-testbed"
 version = "0.1.0"
 description = "A computational testbed for propagating local perturbations through composed scientific models, with derivative verification, coordinate-consistency tests, and explicit numerical limitations."
 readme = "README.md"
-license = "MIT"
-license-files = ["LICENSE"]
+license = "MPL-2.0"
+license-files = ["LICENSE", "LICENSE-POLICY.md", "LICENSES/*.txt"]
 requires-python = ">=3.12"
 dependencies = ["numpy>=2.0"]
 
