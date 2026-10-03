@@ -1,7 +1,7 @@
 # Jacobian Sensitivity Propagation Testbed in the instrumentation stack
 
 Notation Systems develops computational instrumentation and evidence infrastructure for industrial and cyber-physical systems.
-This component owns **local derivatives, sensitivity and covariance transport**. The [stack map](https://github.com/giasonpooni/Computational-Instrumentation-Workbench/blob/main/docs/STACK.md) locates all public components and distinguishes implemented paths from specifications and scaffolds.
+This component owns **local derivatives, sensitivity and covariance transport**. The [stack map](https://github.com/atomtrapping/Notations-Systems-Terminal/blob/main/docs/STACK.md) locates all public components and distinguishes implemented paths from specifications and scaffolds.
 
 ## Current boundary
 
@@ -33,7 +33,7 @@ A["Input covariance artifact"] --> V["Check identity, order and covariance"]
 
 Solid arrows show the implemented JSON provider; dotted arrows mark CIW ownership. Jacobian columns follow input quantities and rows follow output quantities. Frames, units, basis IDs, reference values, correlations and provenance remain explicit in the artifacts. The provider does not infer unit conversions, establish physical frame validity or verify the caller-supplied derivative. Model-based Monte Carlo comparisons remain separate APIs.
 
-[Instrumentation diagram atlas](https://github.com/giasonpooni/Computational-Instrumentation-Workbench/blob/main/docs/DIAGRAMS.md).
+[Instrumentation diagram atlas](https://github.com/atomtrapping/Notations-Systems-Terminal/blob/main/docs/DIAGRAMS.md).
 
 ## Interoperability
 

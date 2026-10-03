@@ -1,58 +1,123 @@
-# Notations Sensitivity
+# Sensitivity
 
-**Measure how local perturbations propagate through composed models and changes of coordinates.**
+**Measure how input changes affect model outputs, derivatives and propagated uncertainty.**
 
-[Run](#install-and-run) · [API](docs/KERNEL.md) · [Covariance provider](#workbench-covariance-operation) · [Research profile](#research-profile)
-
-## Notation Systems
-
-**Frontier Tooling and Instrumentation for Digital Futures.** We develop computational instruments and operational tooling connecting scientific methods, specialized computation and human expertise.
-
-[Notations Systems Terminal](https://github.com/giasonpooni/Notations-Systems-Terminal) composes supported investigations; this provider retains its derivative and covariance mathematics. Governed evidence and Cartesian Graphics' interactive worlds, simulation technology and digital IP keep separate state and approval. [Organization profile](https://github.com/giasonpooni/Notations-Systems-Terminal/blob/b41b84922d4963a9206202029afd1e78b9451f9c/PUBLIC_POSITIONING.md).
-
-| Identity | Scope |
+| NET micro-tool | Identity and scope |
 | --- | --- |
-| Current repository | `Notations-Sensitivity-Testbed` |
-| Provider / import | Jacobian and Sensitivity Propagation Testbed / JSPT; `sensitivity` |
-| Friendly operation-family target | `math.sensitivity` |
-| Existing endpoint | `jspt.covariance-propagate.v1` via `sensitivity.ciw_adapter` |
-| Boundary | Local first-order derivatives, explicit compositions, coordinate consistency and covariance propagation |
+| User-facing name | **Sensitivity** |
+| Proposed NET operation family | `math.sensitivity` |
+| Implementation repository | `Jacobian-Sensitivity-Testbed` |
+| Existing provider and import | Jacobian and Sensitivity Propagation Testbed / JSPT; `sensitivity` |
+| Existing covariance operation | `jspt.covariance-propagate.v1` via `sensitivity.ciw_adapter` |
+| Current boundary | Local first-order derivatives, explicit compositions, coordinate consistency and covariance propagation |
 
-The friendly name does not register a new alias. The covariance endpoint accepts a supplied Jacobian; accepting it is not derivative verification. NET / `net` / `ciw`, imports, contracts and historical pins remain unchanged.
+`math.sensitivity` is the friendly discovery/operation-family target. It does
+**not** rename the versioned covariance endpoint or establish a new installed
+alias. Use the library APIs and runnable subprocess example below. The covariance
+endpoint accepts a supplied Jacobian; accepting that matrix is not derivative
+verification. Local sensitivity is not a global nonlinear guarantee.
 
-## What the instrument demonstrates
+NET owns session composition and dispatch; this provider owns derivative and
+covariance mathematics. Evidence, operation specifications, execution attempts
+and verification records remain distinct. Package imports, versioned contracts,
+retained artifacts and licence terms are unchanged. The older repository URL
+`Jacobian-Sensitivity-Propagation-Testbed` is historical; the checkout commands
+below use the current repository name.
 
-| Operation | Meaning |
+Part of **Notation Systems Inc's computational instrumentation and evidence infrastructure** for industrial and cyber-physical systems.
+
+[Notations Engineering Terminal (CIW)](https://github.com/atomtrapping/Notations-Systems-Terminal) · [Stack map](https://github.com/atomtrapping/Notations-Systems-Terminal/blob/main/docs/STACK.md) · [Component role and interfaces](docs/STACK_ROLE.md)
+
+A computational testbed for propagating local perturbations through
+composed scientific models, with derivative verification,
+coordinate-consistency tests, and explicit numerical limitations.
+
+Short name **JSPT**. The reusable library import is `sensitivity`.
+
+The project answers more than "what is the Jacobian of this function?"
+Its central question is:
+
+> How do changes in inputs and parameters propagate through this
+> model—and does that answer remain consistent when we compose or
+> re-express the model?
+
+## Organization
+
+**Notation Systems Inc** is the parent organization: a scientific computing and systems engineering company developing computational instruments, software and interactive environments for understanding and building physical and virtual systems.
+
+The company's development direction connects measurement, state estimation and sensor fusion, scientific modelling, simulation and execution, from materials and machines to interactive worlds.
+
+| Division | Focus |
 | --- | --- |
-| Derivative checks | Compare a declared Jacobian with central, forward or complex-step estimates |
-| Composition | Compare chain-rule propagation with the composed map |
-| Coordinate consistency | Transform both model and perturbation before comparing physical predictions |
-| Local validity | Test where `dy ~ J dx` ceases to describe `f(x+dx)-f(x)` |
-| Correlated uncertainty | Compare `Sigma_y ~ J Sigma_x J^T` with Monte Carlo under stated assumptions |
+| **Notations Gaming** | Games, graphics, world building, interactive environments and gameplay simulation. |
+| **Notations Manufacturing** | Design, machinery integration, process development, fabrication and production systems. |
+| **Notations Laboratories** | Research and experimental validation in scientific computing, measurement, physics and chemistry modelling, materials and simulation. |
 
-For invertible linear charts `x' = T x` and `y' = S y`,
+**Repository role:** Sensitivity contributes local derivatives, explicit model compositions and first order covariance propagation to **Notations Laboratories**. It supports uncertainty analysis in broader modelling, simulation and sensor fusion development; local numerical propagation requires appropriate model validation and operating envelopes for physical applications.
+
+## Map
+
+```mermaid
+flowchart TD
+X["Input x and perturbation dx"] --> F["Declared model f"]
+  F --> Y["Model output y"]
+  F --> J["Local Jacobian J"]
+  J --> DY["Predicted increment J dx"]
+  X --> DY
+  T["Declared charts T and S"] --> G{"Charts admitted?"}
+  G -->|"no"| R["Refuse without clipping"]
+  G -->|"yes"| JP["Transformed Jacobian S J T inverse"]
+  J --> JP
+  JP --> C["Compare physical increments"]
+  DY --> C
+```
+
+Solid arrows summarize implemented model and coordinate-consistency APIs. Raw Jacobian entries are not invariants: the perturbation and output must move with the declared invertible charts. This model-based diagram is distinct from the covariance endpoint below, which accepts a supplied Jacobian and does not verify that derivative.
+
+[Instrumentation diagram atlas](https://github.com/atomtrapping/Notations-Systems-Terminal/blob/main/docs/DIAGRAMS.md).
+
+## What is in the first release
+
+| Responsibility | What the testbed demonstrates |
+| --- | --- |
+| Derivative checking | Compare a declared Jacobian with central, forward, or complex-step estimates. |
+| Composition | Verify that stepwise chain-rule propagation agrees with differentiating the composed map. |
+| Coordinate consistency | Transform the model and the perturbation together, then compare physical predictions. |
+| Local-validity testing | Measure where `dy ~ J dx` stops describing `f(x+dx)-f(x)`. |
+| Correlated uncertainty | Reuse the same Jacobian in `Sigma_y ~ J Sigma_x J^T` and compare with Monte Carlo. |
+
+The coordinate test is the structural distinction. For invertible linear
+maps `x' = T x` and `y' = S y`,
 
 ```text
-J' = S J T^{-1}
+J' = S J T^{-1}.
+```
+
+We do **not** expect raw Jacobian entries or unscaled singular values to
+be invariant under a change of units. We do expect
+
+```text
 J' dx' = S (J dx)
 ```
 
-Raw Jacobian entries and unscaled singular values are not invariant under changes of units. The perturbation and output coordinates must transform too. Norm-based sensitivity scores must declare their scaling. Invalid charts are refused rather than silently repaired.
+after the perturbation has been translated. Sensitivity scores that use
+matrix norms must declare a scaling.
 
 ## Install and run
 
-Use Python 3.12/3.13 and NumPy. The supported uv route is:
+Python 3.12 or 3.13 and NumPy are required. [uv](https://docs.astral.sh/uv/)
+is the supported runner; a plain virtual environment also works.
 
-```sh
-git clone https://github.com/giasonpooni/Notations-Sensitivity-Testbed.git
-cd Notations-Sensitivity-Testbed
+```bash
+git clone https://github.com/atomtrapping/Notations-Sensitivity-Testbed.git
+cd Jacobian-Sensitivity-Testbed
 uv run --python 3.13 python examples/quickstart.py
 uv run --python 3.13 --with pytest pytest -q
 ```
 
-A plain virtual environment also works:
+Without uv:
 
-```sh
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e . pytest
@@ -60,33 +125,91 @@ PYTHONPATH=src python examples/quickstart.py
 PYTHONPATH=src pytest -q
 ```
 
-The example writes `results/quickstart.md`.
+The quickstart writes `results/quickstart.md`.
 
 ## Using the library
 
-Applications can use `jacobian_at`, `first_order_covariance` and `push_covariance` without adopting the experiment suite or replacing their domain types. Additional interfaces include:
+The `sensitivity` package accepts declared models and arrays. Applications can
+use `jacobian_at`, `first_order_covariance`, and `push_covariance` without
+adopting the experiment suite or changing their domain types.
 
-```python
+See [docs/KERNEL.md](docs/KERNEL.md) for the API and numerical constraints.
+
+### Workbench covariance operation
+
+The JSON endpoint `sensitivity.ciw_adapter` exposes
+`jspt.covariance-propagate.v1` as an **operation provider**. It accepts a
+content-addressed `covariance-artifact.v1` plus an explicit, ordered Jacobian
+and returns the full propagated covariance with source, basis, unit, frame,
+and linearization-point declarations. Weighted aggregation retains all
+cross-covariances; invertible coordinate changes retain the existing chart
+condition and round-trip checks.
+
+```bash
+PYTHONPATH=src python -m sensitivity.ciw_adapter < examples/covariance_request.json
+```
+
+The included shared-offset example returns mean variance `1.03`: the shared
+variance `1` remains, while independent reading variance `0.09` is divided
+among three readings. Negative weights can legitimately cancel a shared
+component. The endpoint uses the existing covariance kernels; it neither
+computes a derivative from the supplied matrix nor performs a nonlinear
+Monte Carlo comparison. Notations Engineering Terminal's existing CIW runtime
+may bind a specific clean Git revision as a pinned subprocess; JSPT retains
+scientific ownership. The `sensitivity.ciw_adapter` module and versioned
+operation identifiers are unchanged by the workbench title update.
+
+See [docs/CIW_ADAPTER.md](docs/CIW_ADAPTER.md) for the exact transport,
+artifact contract, refusal meanings, and validation evidence.
+
+## Library layout
+
+```text
+Reusable sensitivity core
+        +
+Reference models and derivative checks
+        +
+Perturbation / covariance experiments
+        +
+Coordinate-equivalence tests
+        +
+Reproducible reports
+```
+
+```text
 from sensitivity import (
-    compose, jacobian_at, jvp, check_composition,
-    check_coordinate_consistency, check_derivative,
+    compose,
+    jacobian_at,
+    jvp,
+    check_composition,
+    check_coordinate_consistency,
+    check_derivative,
     sweep_perturbation_scale,
 )
 ```
 
-[API and numerical constraints](docs/KERNEL.md).
+Existing fluid, construction, and observer projects can consume
+`sensitivity` where that removes duplication. They do not need the
+experiment suite.
 
-## Workbench covariance operation
+## Scope and limits
 
-```sh
-PYTHONPATH=src python -m sensitivity.ciw_adapter < examples/covariance_request.json
-```
+First-order, local, explicit compositions only. Global sensitivity,
+discontinuous mode changes, and trajectory sensitivities are unsupported.
 
-The endpoint consumes a content-addressed `covariance-artifact.v1` and an explicit ordered Jacobian. It returns full covariance with source, basis, units, frame and linearization-point declarations. Weighted aggregation retains cross-covariance; invertible charts retain conditioning and round-trip checks.
+First-order covariance is exact for affine maps. For nonlinear maps the
+testbed reports the Monte Carlo gap instead of treating the formula as
+unconditionally adequate.
 
-The shared-offset fixture returns mean variance `1.03`: shared variance `1` remains while independent variance `0.09` is divided over three readings. Negative weights may legitimately cancel a shared component. The endpoint reuses the existing kernels; it neither differentiates the supplied matrix nor runs a nonlinear Monte Carlo check.
+See [docs/SCOPE.md](docs/SCOPE.md) and [docs/METHODS.md](docs/METHODS.md).
 
-NET can bind a clean source revision as a pinned subprocess. Evidence, specifications, executions, results and verification remain distinct. See [transport, refusal meanings and validation evidence](docs/CIW_ADAPTER.md).
+## License
+
+MIT. See [LICENSE](LICENSE).
+
+## Instrument role
+
+[Notations Systems Terminal](https://github.com/atomtrapping/Notations-Systems-Terminal) composes supported investigations; this provider retains its derivative and covariance mathematics. Governed evidence and Notations Gaming's interactive worlds, simulation technology and digital IP keep separate state and approval. [Current organization](#organization).
 
 ## Research profile
 
@@ -94,16 +217,4 @@ NET can bind a clean source revision as a pinned subprocess. Evidence, specifica
 
 Use derivative references, chart changes, perturbation sweeps and correlated covariance as bounded specimens. A locally zero derivative does not prove global irrelevance. A successful ablation on one input is not a theorem of minimal representation. Compare physical increments and task outcomes, not unscaled matrix entries.
 
-Measure error and refusal behavior before runtime or context savings. Independent implementations and shared-kernel language bindings provide different evidence. Python/Julia/Rust/C++ and CUDA providers require separate implementation and qualification. [Shared research protocol](https://github.com/giasonpooni/Notations-Systems-Terminal/blob/b41b84922d4963a9206202029afd1e78b9451f9c/RESEARCH_PROGRAMME.md).
-
-## Scope and limits
-
-First-order, local, explicit compositions only. Global sensitivity, discontinuous mode changes and trajectory sensitivities are unsupported. Covariance propagation is exact for affine maps under its stated model; for nonlinear maps, the experiment reports the Monte Carlo discrepancy rather than assuming adequacy.
-
-[Scope](docs/SCOPE.md) · [Methods](docs/METHODS.md) · [Stack role](docs/STACK_ROLE.md)
-
-Former repository names remain compatibility context. This documentation changes no numerical source, tests, dependencies, licence, permissions or release state. No new runtime or GPU qualification is claimed.
-
-## License
-
-[MIT](LICENSE). Existing contributor and third-party notices remain in force. Organization positioning does not transfer rights or establish nonprofit status.
+Measure error and refusal behavior before runtime or context savings. Independent implementations and shared-kernel language bindings provide different evidence. Python/Julia/Rust/C++ and CUDA providers require separate implementation and qualification. [Historical research protocol](https://github.com/atomtrapping/Notations-Systems-Terminal/blob/b41b84922d4963a9206202029afd1e78b9451f9c/RESEARCH_PROGRAMME.md).
