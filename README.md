@@ -24,7 +24,7 @@ retained artifacts and licence terms are unchanged. The older repository URL
 `Jacobian-Sensitivity-Propagation-Testbed` is historical; the checkout commands
 below use the current repository name.
 
-Part of **Notation Systems' computational instrumentation and evidence infrastructure** for industrial and cyber-physical systems.
+Part of **Notation Systems Inc's computational instrumentation and evidence infrastructure** for industrial and cyber-physical systems.
 
 [Notations Engineering Terminal (CIW)](https://github.com/giasonpooni/Notations-Engineering-Terminal) · [Stack map](https://github.com/giasonpooni/Notations-Engineering-Terminal/blob/main/docs/STACK.md) · [Component role and interfaces](docs/STACK_ROLE.md)
 
@@ -40,6 +40,18 @@ Its central question is:
 > How do changes in inputs and parameters propagate through this
 > model—and does that answer remain consistent when we compose or
 > re-express the model?
+
+## Organization
+
+**Notation Systems Inc** is the parent organization.
+
+| Division | Focus |
+| --- | --- |
+| **Notations Gaming** | Games, graphics and interactive worlds. |
+| **Notations Manufacturing** | Industrial design, materials and manufacturing systems. |
+| **Notations Laboratories** | Research, scientific computing, simulation and experimental validation. |
+
+This repository contributes sensitivity and uncertainty propagation tools to **Notations Laboratories**, supporting modeling and validation across the divisions.
 
 ## Map
 
