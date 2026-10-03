@@ -206,3 +206,15 @@ See [docs/SCOPE.md](docs/SCOPE.md) and [docs/METHODS.md](docs/METHODS.md).
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+## Instrument role
+
+[Notations Systems Terminal](https://github.com/atomtrapping/Notations-Systems-Terminal) composes supported investigations; this provider retains its derivative and covariance mathematics. Governed evidence and Notations Gaming's interactive worlds, simulation technology and digital IP keep separate state and approval. [Current organization](#organization).
+
+## Research profile
+
+**Question:** which predictions survive composition and representation changes, and how far can local approximation be trusted?
+
+Use derivative references, chart changes, perturbation sweeps and correlated covariance as bounded specimens. A locally zero derivative does not prove global irrelevance. A successful ablation on one input is not a theorem of minimal representation. Compare physical increments and task outcomes, not unscaled matrix entries.
+
+Measure error and refusal behavior before runtime or context savings. Independent implementations and shared-kernel language bindings provide different evidence. Python/Julia/Rust/C++ and CUDA providers require separate implementation and qualification. [Historical research protocol](https://github.com/atomtrapping/Notations-Systems-Terminal/blob/b41b84922d4963a9206202029afd1e78b9451f9c/RESEARCH_PROGRAMME.md).
