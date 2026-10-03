@@ -26,7 +26,7 @@ below use the current repository name.
 
 Part of **Notation Systems Inc's computational instrumentation and evidence infrastructure** for industrial and cyber-physical systems.
 
-[Notations Engineering Terminal (CIW)](https://github.com/giasonpooni/Notations-Engineering-Terminal) · [Stack map](https://github.com/giasonpooni/Notations-Engineering-Terminal/blob/main/docs/STACK.md) · [Component role and interfaces](docs/STACK_ROLE.md)
+[Notations Engineering Terminal (CIW)](https://github.com/atomtrapping/Notations-Systems-Terminal) · [Stack map](https://github.com/atomtrapping/Notations-Systems-Terminal/blob/main/docs/STACK.md) · [Component role and interfaces](docs/STACK_ROLE.md)
 
 A computational testbed for propagating local perturbations through
 composed scientific models, with derivative verification,
@@ -74,7 +74,7 @@ X["Input x and perturbation dx"] --> F["Declared model f"]
 
 Solid arrows summarize implemented model and coordinate-consistency APIs. Raw Jacobian entries are not invariants: the perturbation and output must move with the declared invertible charts. This model-based diagram is distinct from the covariance endpoint below, which accepts a supplied Jacobian and does not verify that derivative.
 
-[Instrumentation diagram atlas](https://github.com/giasonpooni/Notations-Engineering-Terminal/blob/main/docs/DIAGRAMS.md).
+[Instrumentation diagram atlas](https://github.com/atomtrapping/Notations-Systems-Terminal/blob/main/docs/DIAGRAMS.md).
 
 ## What is in the first release
 
@@ -109,7 +109,7 @@ Python 3.12 or 3.13 and NumPy are required. [uv](https://docs.astral.sh/uv/)
 is the supported runner; a plain virtual environment also works.
 
 ```bash
-git clone https://github.com/giasonpooni/Jacobian-Sensitivity-Testbed.git
+git clone https://github.com/atomtrapping/Notations-Sensitivity-Testbed.git
 cd Jacobian-Sensitivity-Testbed
 uv run --python 3.13 python examples/quickstart.py
 uv run --python 3.13 --with pytest pytest -q
